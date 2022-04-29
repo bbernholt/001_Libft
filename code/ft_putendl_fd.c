@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 20:58:54 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/04/29 21:39:05 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/04/29 21:23:44 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/04/29 21:38:55 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-int main(void)
+void ft_putendl_fd(char *s, int fd)
 {
-    ft_putnbr_fd(5, 1);
+    int i;
+
+    i = 0;
+    while (s[i] != '\0')
+    {
+        write(fd, &s[i], 1);
+        i++;
+    } 
     write(1, "\n", 1);
-    ft_putstr_fd("Text", 2);
-    ft_putendl_fd("another_Text", 2);
 }

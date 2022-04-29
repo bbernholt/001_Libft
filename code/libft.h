@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/04/29 21:24:30 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:39:07 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,7 @@
 
 void ft_putnbr_fd(int n, int fd);
 void ft_putstr_fd(char *s, int fd);
+void ft_putendl_fd(char *s, int fd);
+
 
 #endif // MY_HEADER
