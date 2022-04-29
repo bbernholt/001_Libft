@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:54 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/04/29 21:39:05 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:53:22 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ int main(void)
     write(1, "\n", 1);
     ft_putstr_fd("Text", 2);
     ft_putendl_fd("another_Text", 2);
+    ft_putchar_fd('a', 2);
 }
