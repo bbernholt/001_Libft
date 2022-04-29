@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/04/29 21:24:30 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/04/29 21:23:44 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/04/29 21:31:49 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_HEADER   /* Include guard */
-#define MY_HEADER
+#include <unistd.h>
+#include "libft.h"
 
-void ft_putnbr_fd(int n, int fd);
-void ft_putstr_fd(char *s, int fd);
+void ft_putstr_fd(char *s, int fd)
+{
+    int i;
 
-#endif // MY_HEADER
+    i = 0;
+    while (s[i] != '\0')
+    {
+        write(fd, &s[i], 1);
+        i++;
+    } 
+}
