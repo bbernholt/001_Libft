@@ -1,0 +1,5 @@
+Function_name       researched      programmed      norminette        flags       tests
+
+ft_putendl_fd           x               x               -               -           -
+ft_putstr_fd            x               x               -               -           -
+ft_putchar_fd           x               x               -               -           -  
