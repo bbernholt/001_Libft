@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/07 15:01:48 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/05/07 15:00:44 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/05/07 15:01:50 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_HEADER   /* Include guard */
-#define MY_HEADER
+#include <unistd.h>
+#include "libft.h"
 
-void ft_putnbr_fd(int n, int fd);
-void ft_putstr_fd(char *s, int fd);
-void ft_putendl_fd(char *s, int fd);
-void ft_putchar_fd(char c, int fd);
-void ft_striteri(char *s, void (*f)(unsigned int, char*));
-int ft_isalpha(int c);
-int ft_isalnum(int c);
-int ft_isdigit(int c);
-int ft_isascii(int c);
-int ft_isprint(int c);
-
-#endif // MY_HEADER
+int ft_isprint(int c)
+{
+    if(c <= 127 && c >= 32)
+    {
+        return (1);
+    }
+    else
+    {
+        return (0);
+    }
+}
