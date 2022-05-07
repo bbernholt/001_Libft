@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 20:52:05 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/04/29 21:37:01 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/05/07 13:00:02 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/05/07 13:09:06 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-void ft_putnbr_fd(int n, int fd)
+int ft_isalnum(int c)
 {
-    int x;
-    
-    x = n + '0';
-    write(fd, &x, 1);
+    if(c <= 57 && c >= 48)
+    {
+        return (1);
+    }
+    else if(c <= 90 && c >= 65)
+    {
+        return (1);
+    }
+    else if(c <= 122 && c >= 97)
+    {
+        return (1);
+    }
+    else
+    {
+        return (0);
+    }
 }

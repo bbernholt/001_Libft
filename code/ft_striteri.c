@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 22:40:54 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/05 18:44:36 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/07 12:33:05 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@ void ft_striteri(char *s, void (*f)(unsigned int, char*))
         i++;
     }
 }
+
