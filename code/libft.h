@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/07 15:33:08 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/08 21:00:09 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int ft_isdigit(int c);
 int ft_isascii(int c);
 int ft_isprint(int c);
 int ft_strlen(const char *s);
+int ft_memcmp(const void *s1, const void *s2, long unsigned int n);
 
 #endif // MY_HEADER
