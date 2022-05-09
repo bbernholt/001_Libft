@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/08 21:00:09 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/09 22:04:57 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ft_putchar_fd(char c, int fd);
 void ft_striteri(char *s, void (*f)(unsigned int, char*));
 int ft_isalpha(int c);
 int ft_isalnum(int c);
-int ft_isdigit(int c);
+int ft_isadigit(int c);
 int ft_isascii(int c);
 int ft_isprint(int c);
 int ft_strlen(const char *s);
