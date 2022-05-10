@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/10 07:40:59 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/10 08:12:26 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ void ft_putchar_fd(char c, int fd);
 void ft_striteri(char *s, void (*f)(unsigned int, char*));
 int ft_isalpha(int c);
 int ft_isalnum(int c);
-int ft_isadigit(int c);
+int ft_isdigit(int c);
 int ft_isascii(int c);
 int ft_isprint(int c);
+int toupper(int c);
+int tolower(int c);
 int ft_strlen(const char *s);
 int ft_memcmp(const void *s1, const void *s2, long unsigned int n);
 void *ft_memcpy(void *dest, void *src, int n);
