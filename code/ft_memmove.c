@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 07:15:17 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/13 14:51:17 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:04:00 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void *ft_memmove(void *dest, const void *src, unsigned long int n)
         buffer[i] = *cast_src;
         *cast_dest = buffer[i];
         cast_dest++;
-        src++;
+        cast_src++;
         i++;
     }
     return (dest);
