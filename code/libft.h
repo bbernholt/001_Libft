@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/13 14:59:49 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/14 12:52:05 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void *ft_memcpy(void *dest, void *src, int n);
 void *ft_memchr(const void *s, int c, unsigned long int n);
 void *ft_memmove(void *dest, const void *src, unsigned long int n);
 void *ft_memset(void *s, int c, unsigned long int n);
+void ft_bzero(void *s, unsigned long int n);
 
 #endif // MY_HEADER
