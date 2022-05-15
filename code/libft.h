@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/14 13:56:30 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/15 14:18:08 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void ft_bzero(void *s, unsigned long int n);
 char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
 int ft_strcmp(const char *s1, const char *s2);
+long unsigned int ft_strlcpy(char *dst, const char *src, long unsigned int size);
 
 
 #endif // MY_HEADER
