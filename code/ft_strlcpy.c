@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 13:12:33 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/15 14:17:43 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/16 22:21:32 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ long unsigned int ft_strlcpy(char *dst, const char *src, long unsigned int size)
         src++;
         i++;
     }
-    *dst = '\0';
+    if(size > 0)
+    {
+        *dst = '\0';
+    }
     return (return_value);
 }
 
