@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/17 18:18:27 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/20 08:05:59 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ char *ft_strrchr(const char *s, int c);
 int ft_strcmp(const char *s1, const char *s2);
 long unsigned int ft_strlcpy(char *dst, const char *src, long unsigned int size);
 long unsigned int ft_strlcat(char *dst, const char *src, long unsigned int size);
-char * ft_strnstr(const char * big, const char * little, long unsigned int size);
+char *ft_strnstr(const char * big, const char * little, long unsigned int size);
+void *ft_calloc(unsigned int n, unsigned int size);
+char *ft_strdup(const char *s);
 
 
 #endif // MY_HEADER
