@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/20 08:04:46 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/21 09:28:04 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/05/21 10:13:28 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/05/21 10:27:30 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,28 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char *ft_strdup(const char *s)
+char *ft_strjoin(char const *s1, char const *s2)
 {
     int i;
-    char *duplicate;
+    char *ptr_return;
 
     i = 0;
-    duplicate = malloc(ft_strlen(s) + 1);
-    if (duplicate != NULL)
+    ptr_return = (char*)malloc(ft_strlen(s1)+ft_strlen(s2)+1);
+    if(ptr_return != NULL)
     {
-        while (*s != '\0')
+        while(*s1 != '\0')
         {
-            duplicate[i] = *s;
-            s++;
+            ptr_return[i] = *s1;
             i++;
+            s1++;
         }
+        while(*s2 != '\0')
+        {
+            ptr_return[i] = *s2;
+            i++;
+            s2++;
+        }
+        ptr_return[i] = '\0';
     }
-    return (duplicate);
+    return (ptr_return);
 }

@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/20 08:05:59 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/21 09:32:16 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ long unsigned int ft_strlcat(char *dst, const char *src, long unsigned int size)
 char *ft_strnstr(const char * big, const char * little, long unsigned int size);
 void *ft_calloc(unsigned int n, unsigned int size);
 char *ft_strdup(const char *s);
+char *ft_substring(char const *s, unsigned int start, unsigned int len);
 
 
 #endif // MY_HEADER
