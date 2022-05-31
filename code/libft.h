@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/26 17:01:56 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/05/31 17:43:44 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ char *ft_substring(char const *s, unsigned int start, unsigned int len);
 char *ft_strjoin(char const *s1, char const *s2);
 char *ft_itoa(int n);
 char **ft_split(char const *s, char c);
+char *ft_strtrim(char const *s1, char const *set);
 
 
 #endif // MY_HEADER
