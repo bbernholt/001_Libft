@@ -6,17 +6,48 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:52:05 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/04/29 21:37:01 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/07 12:32:10 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
+#include <unistd.h>
 
-void ft_putnbr_fd(int n, int fd)
+static void	recursiv_print(int input, int fd);
+
+void	ft_putnbr_fd(int n, int fd)
 {
-    int x;
-    
-    x = n + '0';
-    write(fd, &x, 1);
+	int		biggest_negative;
+	char	buffer;
+
+	biggest_negative = -2147483648;
+	if (n == biggest_negative)
+		write (fd, "-2147483648", 11);
+	else
+	{
+		if (n < 0)
+		{
+			write (fd, "-", 1);
+			n = n * -1;
+		}
+		if (n <= 9)
+		{
+			buffer = n + '0';
+			write (fd, &buffer, 1);
+		}
+		else
+			recursiv_print(n, fd);
+	}
+}
+
+static void	recursiv_print(int input, int fd)
+{
+	char	buffer;
+
+	if (input != 0)
+	{
+		recursiv_print(input / 10, fd);
+		buffer = input % 10 + '0';
+		write (fd, &buffer, 1);
+	}
 }

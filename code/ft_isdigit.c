@@ -6,22 +6,18 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 23:18:01 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/10 08:04:05 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/07 14:18:37 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 #include "libft.h"
 
-int iadigit(int c)
+int	ft_isdigit(int c)
 {
-    if(c <= 57 && c >= 48)
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	if (c <= '9' && c >= '0')
+	{
+		return (1);
+	}
+	return (0);
 }

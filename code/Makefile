@@ -1,15 +1,19 @@
 CC=gcc 
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS+=-Wall -Wextra -Werror
 
 
-NAME=libft
-OBJECTS=ft_isadigit.o
-CFILES=ft_isadigit.c
+NAME=libft.a
+MAIN=main.c
+HEADER=libft.h
+OBJECTS=ft_isdigit.o
+CFILES=ft_isdigit.c
 
 all:$(NAME)
 
 $(NAME): $(OBJECTS)
-	$(CC) -o $@ $^
+#	$(CC) $(HEADER) -o $@ $^
+#	ar -crs libcipher.a cipher_encode.o cipher_decode.o
+	ar -crs libft.a $^
 
 $(OBJECTS): $(CFILES) 
 	$(CC) $(CLFAGS) -c -o $@ $^

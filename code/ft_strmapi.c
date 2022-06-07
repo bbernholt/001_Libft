@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 13:55:38 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/14 14:23:11 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/06/07 14:00:18 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/06/07 14:10:40 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
+#include <stdlib.h>
+#include <unistd.h>
 
-int ft_strcmp(const char *s1, const char *s2)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    int return_value;
+	int		len;
+	int		i;
+	char	*str;
 
-    return_value = 0;
-    while(*s1 != '\0' || *s2 != '\0')
-    {
-        if ((unsigned char)*s1 != (unsigned char)*s2)
-        {
-            return_value = (unsigned char)*s1 - (unsigned char)*s2;
-            break;
-        }
-        s1++;
-        s2++;
-    }
+	i = 0;
+	if (!s || !f)
+		return (0);
+	len = ft_strlen(s);
+	str = (char *)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i < len)
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
 }

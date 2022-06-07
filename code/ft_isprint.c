@@ -6,21 +6,21 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 15:00:44 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/07 15:01:50 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/06 18:30:57 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
-    if(c <= 127 && c >= 32)
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	if (c <= 126 && c >= 32)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }

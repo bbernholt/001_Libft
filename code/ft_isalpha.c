@@ -6,21 +6,21 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 23:18:01 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/05/07 12:59:52 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/07 14:14:24 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libft.h"
 
-int isalpha(int c)
+int	ft_isalpha(int c)
 {
-    if((c <= 90 && c >= 65) || (c <= 122 && c >= 98))
-    {
-        return (1);
-    }
-    else
-    {
-        return (0);
-    }
+	if ((c <= 90 && c >= 65) || (c <= 122 && c >= 97))
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
