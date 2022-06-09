@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/07 13:36:45 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/09 18:41:29 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static void	ft_iszero(char *ptr_char, int *i);
 static void	ft_isnegative(char *ptr_char, int *i, long int *new_n);
 static void	ft_ispositive(char *ptr_char, int *i, long int *new_n);
 static void	ft_strrev(char *reverse, int length);
-static int	ft_strlen(const char *s);
 
 char	*ft_itoa(int n)
 {
@@ -91,17 +90,4 @@ static void	ft_strrev(char *reverse, int length)
 		length--;
 		i++;
 	}
-}
-
-static int	ft_strlen(const char *s)
-{
-	int	strlen;
-
-	strlen = 0;
-	while (*s != '\0')
-	{
-		strlen++;
-		s++;
-	}
-	return (strlen);
 }

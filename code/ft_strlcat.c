@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/16 22:19:06 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/06 18:14:35 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/06/09 23:37:45 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/06/09 23:37:52 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 
 long unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size)
 {
-	char	*last_char_at_dst;
-	int		strlen_dst;
+	unsigned int	strlen_dst;
+	int				n;
 
+	if (size <= (unsigned int)ft_strlen(dst))
+		return (size + ft_strlen(src));
 	strlen_dst = ft_strlen(dst);
-	last_char_at_dst = dst + strlen_dst;
-	while ((size - strlen_dst - 1) > 0 && *src != '\0')
+	n = 0;
+	while (src[n] != '\0' && strlen_dst + 1 < size)
 	{
-		*last_char_at_dst = *src;
-		last_char_at_dst++;
-		src++;
-		size--;
+		dst[strlen_dst] = src[n];
+		strlen_dst++;
+		n++;
 	}
-	*last_char_at_dst = '\0';
-	return (ft_strlen(dst));
+	dst[strlen_dst] = '\0';
+	return (ft_strlen(dst) + ft_strlen(&src[n]));
 }
