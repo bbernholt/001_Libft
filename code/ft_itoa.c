@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/09 18:41:29 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:45:22 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static void	ft_iszero(char *ptr_char, int *i);
 static void	ft_isnegative(char *ptr_char, int *i, long int *new_n);
 static void	ft_ispositive(char *ptr_char, int *i, long int *new_n);
+static void	ft_fill_term(char *ptr_char);
 static void	ft_strrev(char *reverse, int length);
 
 char	*ft_itoa(int n)
@@ -28,12 +28,13 @@ char	*ft_itoa(int n)
 	i = 0;
 	new_n = n;
 	ptr_char = (char *)malloc(12);
+	ft_fill_term(ptr_char);
 	if (ptr_char != NULL)
 	{
 		if (new_n == 0)
 		{
-			ptr_char[*i] = '0';
-			(*i)++;
+			ptr_char[i] = '0';
+			(i)++;
 		}
 		else if (new_n < 0)
 			ft_isnegative(ptr_char, &i, &new_n);
@@ -44,12 +45,6 @@ char	*ft_itoa(int n)
 	}
 	return (ptr_char);
 }
-
-// static void	ft_iszero(char *ptr_char, int *i)
-// {
-// 	ptr_char[*i] = '0';
-// 	(*i)++;
-// }
 
 static void	ft_isnegative(char *ptr_char, int *i, long int *new_n)
 {
@@ -72,6 +67,18 @@ static void	ft_ispositive(char *ptr_char, int *i, long int *new_n)
 		(*i)++;
 	}
 	(*i)++;
+}
+
+static void	ft_fill_term(char *ptr_char)
+{
+	int	j;
+
+	j = 0;
+	while (j < 12)
+	{
+		ptr_char[j] = '\0';
+		j++;
+	}
 }
 
 static void	ft_strrev(char *reverse, int length)
