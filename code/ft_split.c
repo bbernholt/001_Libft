@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/16 16:15:13 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/16 21:31:18 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,78 +15,67 @@
 #include <stdio.h>
 #include "libft.h"
 
-static int	ft_cnt_of_parts(char const *s, char c);
-static int	ft_len_parts(char const *s, char c);
-static void	ft_fill(char const **s, char c, char *ptr);
+static int	ft_cnt_parts(const char *str, char c);
+static char	*ft_fill(const char *str, int start, int finish);
 
 char	**ft_split(char const *s, char c)
 {
-	char	**ptr_to_array;
-	int		nrb_of_parts;
+	int		i;
+	int		j;
+	int		index;
+	char	**return_value;
+
+	i = 0;
+	j = 0;
+	index = -1;
+	return_value = malloc((ft_cnt_parts(s, c) + 1) * 8);
+	if (!s || !return_value)
+		return (0);
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && index < 0)
+			index = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
+		{
+			return_value[j++] = ft_fill(s, index, i);
+			index = -1;
+		}
+		i++;
+	}
+	return_value[j] = 0;
+	return (return_value);
+}
+
+static int	ft_cnt_parts(const char *str, char c)
+{
+	int	nbr_parts;
+	int	part_counted;
+
+	nbr_parts = 0;
+	part_counted = 0;
+	while (*str)
+	{
+		if (*str != c && part_counted == 0)
+		{
+			part_counted = 1;
+			nbr_parts++;
+		}
+		else if (*str == c)
+			part_counted = 0;
+		str++;
+	}
+	return (nbr_parts);
+}
+
+static char	*ft_fill(const char *str, int start, int finish)
+{
+	char	*splitted_str;
 	int		i;
 
 	i = 0;
-	nrb_of_parts = ft_cnt_of_parts(s, c);
-	ptr_to_array = (char **)malloc(nrb_of_parts * 8);
-	if (!ptr_to_array)
-		return (0);
-	while (nrb_of_parts != 0)
-	{
-		ptr_to_array[i] = (char *)malloc(ft_len_parts(s, c) + 1);
-		if (!ptr_to_array[i])
-			return (0);
-		ft_fill(&s, c, ptr_to_array[i]);
-		i++;
-		nrb_of_parts--;
-	}
-	return (ptr_to_array);
-}
-
-static int	ft_cnt_of_parts(char const *s, char c)
-{
-	int	i;
-	int	cnt_of_parts;
-
-	i = 0;
-	cnt_of_parts = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-		{
-			cnt_of_parts++;
-			i++;
-		}
-		else
-			i++;
-	}
-	return (cnt_of_parts + 1);
-}
-
-static int	ft_len_parts(char const *s, char c)
-{
-	int	length;
-
-	length = 0;
-	while (*s != c && *s != '\0')
-	{
-		s++;
-		length++;
-	}
-	s++;
-	return (length);
-}
-
-static void	ft_fill(char const **s, char c, char *ptr)
-{
-	while (**s != c && **s != '\0')
-	{
-		*ptr = **s;
-		(*s)++;
-		ptr++;
-	}
-	if (**s == c || **s == '\0')
-	{
-		*ptr = '\0';
-		(*s)++;
-	}
+	splitted_str = malloc(finish - start + 1);
+	while (start < finish)
+		splitted_str[i++] = str[start++];
+	splitted_str[i] = '\0';
+	return (splitted_str);
 }
