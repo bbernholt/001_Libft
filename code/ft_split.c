@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/05 21:49:09 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/16 16:15:13 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,30 @@
 #include "libft.h"
 
 static int	ft_cnt_of_parts(char const *s, char c);
-static void	ft_len_of_parts(char const *s, char c, int *array);
-static void	ft_fill(char const *s, char **ptr_to_array_of_ptr, int len_of_parts, char c);
+static int	ft_len_parts(char const *s, char c);
+static void	ft_fill(char const **s, char c, char *ptr);
 
 char	**ft_split(char const *s, char c)
 {
+	char	**ptr_to_array;
+	int		nrb_of_parts;
 	int		i;
-	int		cnt_of_parts;
-	int		len_of_parts[cnt_of_parts + 1];
-	char	**ptr_to_array_of_ptr;
 
 	i = 0;
-	cnt_of_parts = ft_cnt_of_parts(s, c);
-	ft_len_of_parts(s, c, len_of_parts);
-	ptr_to_array_of_ptr = (char **)malloc(cnt_of_parts * 8);
-	while (cnt_of_parts != 0)
+	nrb_of_parts = ft_cnt_of_parts(s, c);
+	ptr_to_array = (char **)malloc(nrb_of_parts * 8);
+	if (!ptr_to_array)
+		return (0);
+	while (nrb_of_parts != 0)
 	{
-		ptr_to_array_of_ptr[i] = (char *)malloc(len_of_parts[i]);
-		ft_fill(s, ptr_to_array_of_ptr, len_of_parts[i], c);
-		cnt_of_parts--;
+		ptr_to_array[i] = (char *)malloc(ft_len_parts(s, c) + 1);
+		if (!ptr_to_array[i])
+			return (0);
+		ft_fill(&s, c, ptr_to_array[i]);
 		i++;
+		nrb_of_parts--;
 	}
-	return (ptr_to_array_of_ptr);
+	return (ptr_to_array);
 }
 
 static int	ft_cnt_of_parts(char const *s, char c)
@@ -46,55 +48,45 @@ static int	ft_cnt_of_parts(char const *s, char c)
 	int	cnt_of_parts;
 
 	i = 0;
+	cnt_of_parts = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
 		{
 			cnt_of_parts++;
-			s[i++];
+			i++;
 		}
-		s[i++];
-	}
-	return (cnt_of_parts);
-}
-
-static void	ft_len_of_parts(char const *s, char c, int *array)
-{
-	int	i;
-	int	j;
-	int	len_of_parts;
-
-	i = 0;
-	j = 0;
-	len_of_parts = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == c)
-		{
-			array[j] = (len_of_parts + 2);
-			len_of_parts = 0;
-			s[i++];
-			j++;
-		}
-		len_of_parts++;
-		s[i++];
-	}
-	array[j] = (len_of_parts + 2);
-}
-
-static void	ft_fill(char const *s, char **ptr_to_array_of_ptr, int len_of_parts, char c)
-{
-	int	i;
-
-	i = 0;
-	while (len_of_parts != 0)
-	{
-		if (*s == c)
-			*ptr_to_array_of_ptr[i] = '\0';
 		else
-			*ptr_to_array_of_ptr[i] = *s;
+			i++;
+	}
+	return (cnt_of_parts + 1);
+}
+
+static int	ft_len_parts(char const *s, char c)
+{
+	int	length;
+
+	length = 0;
+	while (*s != c && *s != '\0')
+	{
 		s++;
-		i++;
-		len_of_parts--;
+		length++;
+	}
+	s++;
+	return (length);
+}
+
+static void	ft_fill(char const **s, char c, char *ptr)
+{
+	while (**s != c && **s != '\0')
+	{
+		*ptr = **s;
+		(*s)++;
+		ptr++;
+	}
+	if (**s == c || **s == '\0')
+	{
+		*ptr = '\0';
+		(*s)++;
 	}
 }
