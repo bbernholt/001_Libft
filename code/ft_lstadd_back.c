@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 20:54:22 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/21 00:32:52 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:11:19 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (*lst == NULL)
 	{
 		*lst = new;
-		return (0);
+		return ;
 	}
 	last_elem = ft_lstlast(*lst);
 	last_elem->next = new;
