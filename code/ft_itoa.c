@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/23 22:05:42 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/23 22:52:35 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	ft_isnegative(char *ptr_char, int *i, long int *new_n);
 static void	ft_ispositive(char *ptr_char, int *i, long int *new_n);
-int			ft_fill_term(int n);
+static int	ft_fill_term(int n);
 static void	ft_strrev(char *reverse, int length);
 
 char	*ft_itoa(int n)
@@ -68,7 +68,7 @@ static void	ft_ispositive(char *ptr_char, int *i, long int *new_n)
 	ptr_char[*i] = '\0';
 }
 
-int	ft_fill_term(int n)
+static int	ft_fill_term(int n)
 {
 	int	i;
 
