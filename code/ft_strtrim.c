@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:35:16 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/10 17:31:17 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/23 21:01:21 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,21 @@ static char	*ft_fill(char const *s1, int back, int front);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	front;
-	int	back;
+	int		front;
+	int		back;
+	int		len_s1;
+	char 	*all_erased;
 
+	len_s1 = ft_strlen(s1);
+	all_erased = NULL;
 	front = ft_cnt_front(s1, set);
 	back = ft_cnt_back(s1, set);
+	if (front == len_s1 && back == len_s1)
+	{
+		all_erased = (char*)malloc(1);
+		all_erased[0] = '\0';
+		return (all_erased);
+	}
 	return (ft_fill(s1, back, front));
 }
 
@@ -83,6 +93,8 @@ static char	*ft_fill(char const *s1, int back, int front)
 
 	trimmend_len = (ft_strlen(s1) + 1) - (front + back);
 	return_value = (char *)malloc(trimmend_len);
+	if (!return_value)
+		return (NULL);
 	i = 0;
 	while (i < trimmend_len - 1)
 	{
