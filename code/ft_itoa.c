@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/10 15:45:22 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/23 22:05:42 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	ft_isnegative(char *ptr_char, int *i, long int *new_n);
 static void	ft_ispositive(char *ptr_char, int *i, long int *new_n);
-static void	ft_fill_term(char *ptr_char);
+int			ft_fill_term(int n);
 static void	ft_strrev(char *reverse, int length);
 
 char	*ft_itoa(int n)
@@ -27,22 +27,20 @@ char	*ft_itoa(int n)
 
 	i = 0;
 	new_n = n;
-	ptr_char = (char *)malloc(12);
-	ft_fill_term(ptr_char);
-	if (ptr_char != NULL)
+	ptr_char = (char *)malloc(ft_fill_term(n));
+	if (!ptr_char)
+		return (NULL);
+	if (new_n == 0)
 	{
-		if (new_n == 0)
-		{
-			ptr_char[i] = '0';
-			(i)++;
-		}
-		else if (new_n < 0)
-			ft_isnegative(ptr_char, &i, &new_n);
-		else
-			ft_ispositive(ptr_char, &i, &new_n);
-		ft_strrev(ptr_char, ft_strlen(ptr_char));
+		ptr_char[i++] = '0';
 		ptr_char[i] = '\0';
 	}
+	else if (new_n < 0)
+		ft_isnegative(ptr_char, &i, &new_n);
+	else
+		ft_ispositive(ptr_char, &i, &new_n);
+	ft_strrev(ptr_char, ft_strlen(ptr_char));
+	ptr_char[i] = '\0';
 	return (ptr_char);
 }
 
@@ -56,6 +54,7 @@ static void	ft_isnegative(char *ptr_char, int *i, long int *new_n)
 	}
 	ptr_char[*i] = '-';
 	(*i)++;
+	ptr_char[*i] = '\0';
 }
 
 static void	ft_ispositive(char *ptr_char, int *i, long int *new_n)
@@ -66,19 +65,21 @@ static void	ft_ispositive(char *ptr_char, int *i, long int *new_n)
 		*new_n /= 10;
 		(*i)++;
 	}
-	(*i)++;
+	ptr_char[*i] = '\0';
 }
 
-static void	ft_fill_term(char *ptr_char)
+int	ft_fill_term(int n)
 {
-	int	j;
+	int	i;
 
-	j = 0;
-	while (j < 12)
+	i = 0;
+	if (n <= 0)
 	{
-		ptr_char[j] = '\0';
-		j++;
+		n /= 10;
+		i++;
 	}
+	i++;
+	return (i);
 }
 
 static void	ft_strrev(char *reverse, int length)
