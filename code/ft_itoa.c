@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/23 22:52:35 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/24 20:07:12 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,14 @@ char	*ft_itoa(int n)
 	new_n = n;
 	ptr_char = (char *)malloc(ft_fill_term(n));
 	if (!ptr_char)
-		return (NULL);
+		return (0);
 	if (new_n == 0)
 	{
 		ptr_char[i++] = '0';
 		ptr_char[i] = '\0';
 	}
+	else if (!n)
+		ptr_char[i] = '\0';
 	else if (new_n < 0)
 		ft_isnegative(ptr_char, &i, &new_n);
 	else
@@ -72,8 +74,10 @@ static int	ft_fill_term(int n)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (n <= 0)
+		i++;
+	while (n != 0)
 	{
 		n /= 10;
 		i++;

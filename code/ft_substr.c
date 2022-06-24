@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 09:31:45 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/23 20:00:21 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/24 18:42:40 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@
 char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 {
 	int				i;
-	unsigned int 	len_s;
 	char			*ptr_return;
 
 	i = 0;
-	ptr_return = NULL;
-	len_s = ft_strlen(s);
 	if (!s)
-		return (ptr_return);
-	if (len_s <= start)
+		return (NULL);
+	if (ft_strlen(s) <= (int)start)
 	{
 		ptr_return = (char *)malloc(1);
 		if (!ptr_return)
@@ -36,11 +33,10 @@ char	*ft_substr(char const *s, unsigned int start, unsigned int len)
 	ptr_return = (char *)malloc(len + 1);
 	if (ptr_return != NULL)
 	{
-		while (len != 0)
+		while (i < (int)len)
 		{
 			ptr_return[i] = s[start + i];
 			i++;
-			len--;
 		}
 		ptr_return[i] = '\0';
 	}

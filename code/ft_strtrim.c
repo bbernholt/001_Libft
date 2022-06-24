@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:35:16 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/23 21:01:21 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/23 23:38:09 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		front;
 	int		back;
 	int		len_s1;
-	char 	*all_erased;
+	char	*all_erased;
 
 	len_s1 = ft_strlen(s1);
 	all_erased = NULL;
@@ -32,7 +32,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	back = ft_cnt_back(s1, set);
 	if (front == len_s1 && back == len_s1)
 	{
-		all_erased = (char*)malloc(1);
+		all_erased = (char *)malloc(1);
 		all_erased[0] = '\0';
 		return (all_erased);
 	}
