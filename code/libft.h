@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/20 23:45:41 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/07/01 13:34:58 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int					ft_strlen(const char *s);
 int					ft_atoi(const char *str);
 int					ft_memcmp(const void *s1, \
 const void *s2, long unsigned int n);
-void				*ft_memcpy(void *dest, void *src, int n);
+void				*ft_memcpy(void *dest, const void *src, unsigned int n);
 void				*ft_memchr(const void *s, int c, unsigned long int n);
 void				*ft_memmove(void *dest, const void *src, \
 unsigned long int n);
