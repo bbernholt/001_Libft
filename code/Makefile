@@ -22,10 +22,10 @@ bonus:$(BONUSOBJECTS) $(OBJECTS)
 $(BONUSOBJECTS): $(BONUSCFILES)
 	$(CC) $(CLFAGS) -c $^
 
-clean:
+fclean:
 	rm -rf $(NAME)
 
-fclean: clean
+clean: clean
 	rm -rf $(OBJECTS)
 	rm -rf $(BONUSOBJECTS)
 

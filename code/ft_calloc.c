@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/20 07:49:02 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/23 16:45:26 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/06/30 19:21:45 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,22 @@
 #include <stdlib.h>
 #include "libft.h"
 
-	/*
-	void	*ptr_return;
-
-	ptr_return = malloc(n * size);
-	return (ptr_return);
-	*/
-
 void	*ft_calloc(unsigned int n, unsigned int size)
 {
-	void			*ptr_return;
 	char			*ptr_buffer;
 	unsigned int	i;
 
 	i = 0;
-	ptr_return = NULL;
+	ptr_buffer = NULL;
 	if (n == 0 || size == 0)
-		return (ptr_return);
-	ptr_return = malloc(n * size);
-	if (ptr_return == NULL)
-		return (ptr_return);
-	else
+		return (NULL);
+	ptr_buffer = malloc(n * size);
+	if (ptr_buffer == NULL)
+		return (NULL);
+	while (i < (n * size))
 	{
-		ptr_buffer = (char *)ptr_return;
-		while (i < n * size)
-		{
-			*ptr_buffer = '\0';
-			ptr_buffer++;
-			i++;
-		}
+		ptr_buffer[i] = '\0';
+		i++;
 	}
-	return (ptr_return);
+	return ((void *)ptr_buffer);
 }
