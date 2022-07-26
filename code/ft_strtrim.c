@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 17:35:16 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/23 23:38:09 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:37:52 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	ft_cnt_back(char const *s1, char const *set)
 	i = ft_strlen(s1) - 1;
 	j = 0;
 	cnt_back = 0;
-	while (j < ft_strlen(set))
+	while (j < ft_strlen(set) && i >= 0)
 	{
 		if (set[j] == s1[i])
 		{

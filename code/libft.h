@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 20:58:58 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/07/06 19:00:34 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/07/19 14:38:23 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void				ft_lstadd_front(t_list **lst, t_list *new);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 int					ft_lstsize(t_list *qlst);
 t_list				*ft_lstlast(t_list *lst);
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
@@ -50,7 +52,7 @@ void				*ft_memchr(const void *s, int c, unsigned long int n);
 void				*ft_memmove(void *dest, const void *src, \
 unsigned long int n);
 void				*ft_memset(void *s, int c, unsigned long int n);
-void				ft_bzero(void *s, unsigned long int n);
+void				ft_bzero(void *ptr, size_t n);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, \
@@ -59,7 +61,7 @@ size_t				ft_strlcpy(char *dst, const char *src, size_t size);
 long unsigned int	ft_strlcat(char *dst, const char *src, unsigned int size);
 char				*ft_strnstr(const char *big, const char *little, \
 long unsigned int size);
-void				*ft_calloc(size_t n, size_t size);
+void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_strdup(const char *s);
 char				*ft_substr(char const *s, unsigned int start, \
 unsigned int len);

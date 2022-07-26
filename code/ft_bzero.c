@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/14 12:46:50 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/06 17:10:58 by bbernhol         ###   ########.fr       */
+/*   Created: 2022/05/27 11:33:38 by bbernhol          #+#    #+#             */
+/*   Updated: 2022/07/19 14:36:17 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_bzero(void *s, unsigned long int n)
+void	ft_bzero(void *ptr, size_t n)
 {
-	char					*cast_s;
-	unsigned long int		i;
+	unsigned char	*temp;
+	size_t			i;
 
-	i = 1;
-	cast_s = (char *)s;
-	while (i <= n)
+	i = 0;
+	temp = (unsigned char *)ptr;
+	while (i < n)
 	{
-		*cast_s = '\0';
-		cast_s++;
+		*temp = 0;
+		temp++;
 		i++;
 	}
 }

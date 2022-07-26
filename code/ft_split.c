@@ -6,7 +6,7 @@
 /*   By: bbernhol <bbernhol@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 18:38:27 by bbernhol          #+#    #+#             */
-/*   Updated: 2022/06/16 21:31:18 by bbernhol         ###   ########.fr       */
+/*   Updated: 2022/07/07 23:00:42 by bbernhol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "libft.h"
 
 static int	ft_cnt_parts(const char *str, char c);
+static void	*ft_edecase(char const *s, char c);
 static char	*ft_fill(const char *str, int start, int finish);
 
 char	**ft_split(char const *s, char c)
@@ -28,8 +29,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	index = -1;
-	return_value = malloc((ft_cnt_parts(s, c) + 1) * 8);
-	if (!s || !return_value)
+	return_value = ft_edecase(s, c);
+	if (!return_value)
 		return (0);
 	while (i <= ft_strlen(s))
 	{
@@ -78,4 +79,15 @@ static char	*ft_fill(const char *str, int start, int finish)
 		splitted_str[i++] = str[start++];
 	splitted_str[i] = '\0';
 	return (splitted_str);
+}
+
+static void	*ft_edecase(char const *s, char c)
+{
+	void	*ptr;
+
+	if (!s)
+		ptr = NULL;
+	else
+		ptr = malloc((ft_cnt_parts(s, c) + 1) * 8);
+	return (ptr);
 }
